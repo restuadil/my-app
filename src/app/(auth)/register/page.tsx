@@ -3,7 +3,7 @@ import React from "react"
 import AuthForm from "@/Layout/AuthLayout"
 import * as Yup from "yup"
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const initialValues = {
     email: "",
     password: "",
@@ -16,11 +16,7 @@ const LoginPage = () => {
 
   const handleSubmit = (
     values: any,
-    {
-      setSubmitting,
-    }: {
-      setSubmitting: (isSubmitting: boolean) => void
-    }
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
   ) => {
     console.log(values)
     setTimeout(() => {
@@ -32,12 +28,12 @@ const LoginPage = () => {
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
         <div className="flex flex-col items-center">
-          <h1 className="text-3xl font-bold mb-6">Login</h1>
+          <h1 className="text-3xl font-bold mb-6">Register</h1>
           <AuthForm
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
-            buttonText="Login"
+            buttonText="Register"
           />
         </div>
       </div>
@@ -45,4 +41,4 @@ const LoginPage = () => {
   )
 }
 
-export default LoginPage
+export default RegisterPage
