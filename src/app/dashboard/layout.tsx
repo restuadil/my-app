@@ -18,8 +18,8 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   ]
   return (
     <div className="">
-      <div className="flex-grow  bg-gray-100 min-h-screen">
-        <SideBar sideBarItem={sideBarItem} title="Dashboard" />
+      <SideBar sideBarItem={sideBarItem} title="Dashboard" />
+      <div className="flex-grow  bg-gray-100 min-h-screen ml-[200px]">
         {children}
       </div>
     </div>
