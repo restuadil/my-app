@@ -1,7 +1,6 @@
 import instance from "@/lib/axios"
 type UserRequest = {
-  username?: string
-  email?: string
+  email: string
   password: string
 }
 const authServices = {
