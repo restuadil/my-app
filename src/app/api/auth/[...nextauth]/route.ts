@@ -1,5 +1,7 @@
+import { login } from "@/lib/firebase/service"
 import NextAuth, { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
+import bcrypt from "bcrypt"
 
 const authOptions: NextAuthOptions = {
   session: {
@@ -19,9 +21,14 @@ const authOptions: NextAuthOptions = {
           email: string
           password: string
         }
-        const user: any = { id: 1, email: "admin@gmail.com", role: "admin" }
-        if (email === "admin@gmail.com" && password === "admin") {
-          return user
+        const user: any = await login(email)
+        if (user) {
+          const confirmPassword = bcrypt.compareSync(password, user.password)
+          if (confirmPassword) {
+            return user
+          } else {
+            return null
+          }
         } else {
           return null
         }

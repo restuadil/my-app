@@ -1,0 +1,11 @@
+import instance from "@/lib/axios"
+type UserRequest = {
+  username?: string
+  email?: string
+  password: string
+}
+const authServices = {
+  registerAccount: (data: UserRequest) => instance.post("auth/register", data),
+}
+
+export default authServices
