@@ -7,7 +7,7 @@ const NotFoundPage = () => {
   const router = useRouter()
 
   const goHome = () => {
-    router.push("/")
+    router.back()
   }
 
   return (
