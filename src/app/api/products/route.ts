@@ -23,6 +23,7 @@ export const GET = async () => {
 
 export const POST = async (request: NextRequest) => {
   const data = await request.json()
+  data.created_at = new Date().toISOString()
   try {
     const response = await addData("products", data)
     return NextResponse.json(
