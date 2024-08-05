@@ -13,8 +13,8 @@ const Products = () => {
     try {
       const response = await ProductServices.get()
       setProducts(response.data.data)
-    } catch (error) {
-      console.log(error)
+    } catch (error: any) {
+      throw new Error(error.message)
     }
   }
 
@@ -24,9 +24,8 @@ const Products = () => {
       fetchData() // Refresh data setelah produk ditambahkan
       resetForm() // Reset form setelah berhasil
       setIsModalOpen(false) // Tutup modal
-    } catch (error) {
-      console.log(error)
-      resetForm() // Reset form setelah gagal
+    } catch (error: any) {
+      throw new Error(error.message)
     }
   }
 
